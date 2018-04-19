@@ -54,6 +54,7 @@ label {
 
 .account__btn{
   background:orangered;
+  font-family: 'Maven Pro', sans-serif;
   color:#fff;
   /* border: 3px solid transparent; */
   /* box-shadow:0 2px 6px 0 hsla(0,0%,0%,0.2); */

@@ -28,6 +28,33 @@
     animation-name: modalopen;
     animation-duration: 1s;
    }
+   .dashboard-intro > h1{
+    text-align: center;
+   }
+   .caterer-pix {
+     display: flex;
+     justify-content: center;
+     align-content: center;
+     align-items: center;
+   }
+   .caterer-details{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     align-content: center;
+   }
+   .mealcard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .mealcard-avatar > img {
+    width:100%;
+  }
+
 }
 
 /* @media (min-width: 768px){

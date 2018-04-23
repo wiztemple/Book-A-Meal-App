@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --fix"
+    "lint": "eslint --fix",
+    "babel-node": "babel-node ./dummyServer/server.js --presets=env",
+    "dev-server": "nodemon --exec npm run babel-node -- ./dummyServer/server.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +25,9 @@
   "homepage": "https://github.com/wiztemple/Book-A-Meal-App#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.3"
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "volleyball": "^1.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

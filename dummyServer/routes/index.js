@@ -7,6 +7,9 @@ const routes = (app) => {
 
   // add a meal
   app.post('/api/v1/meals', mealController.addMeal);
+
+  // get all meals
+  app.get('/api/v1/meals', mealController.getAllMeals);
 };
 
 

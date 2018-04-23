@@ -41,6 +41,14 @@ class mealController {
       status: 'Fail',
     });
   }
+
+  static getAllMeals(req, res) {
+    return res.status(200).json({
+      Allmeals: meals,
+      status: 'Success',
+      message: 'All meals',
+    });
+  }
 }
 
 export default mealController;

@@ -10,6 +10,8 @@ const routes = (app) => {
 
   // get all meals
   app.get('/api/v1/meals', mealController.getAllMeals);
+  // update all meals
+  app.put('/api/v1/meals/:mealId', mealController.updateMeal);
 };
 
 

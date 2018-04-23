@@ -49,6 +49,26 @@ class mealController {
       message: 'All meals',
     });
   }
+
+  static updateMeal(req, res) {
+    const foundMeal = meals.find(meal =>
+      meal.id = parseInt(req.params.mealId, 10));
+    if (foundMeal) {
+      foundMeal.mealTitle = req.body.mealTitle;
+      foundMeal.description = req.body.description;
+      foundMeal.price = req.body.price;
+      foundMeal.imageUrl = req.body.imageUrl;
+      return res.status(200).json({
+        foundMeal,
+        status: 'Success',
+        message: 'Meal updated successfully',
+      });
+    }
+    return res.status(404).json({
+      status: 'Error',
+      message: 'Meal not found',
+    });
+  }
 }
 
 export default mealController;

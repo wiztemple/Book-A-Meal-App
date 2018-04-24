@@ -1,5 +1,5 @@
 import mealController from '../controllers/mealController';
-
+import menuController from '../controllers/menuController';
 const routes = (app) => {
   app.get('/', (req, res) => {
     res.status(200).send('Welcome to Book-A-Meal');
@@ -13,6 +13,9 @@ const routes = (app) => {
   app.put('/api/v1/meals/:mealId', mealController.updateMeal);
   // remove a meal
   app.delete('/api/v1/meals/:mealId', mealController.removeMeal);
+
+  // set a menu
+  app.post('/api/v1/menu', menuController.setMenu);
 };
 
 

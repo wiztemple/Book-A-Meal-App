@@ -52,7 +52,7 @@ class mealController {
 
   static updateMeal(req, res) {
     const foundMeal = meals.find(meal =>
-      meal.id = parseInt(req.params.mealId, 10));
+      meal.id === parseInt(req.params.mealId, 10));
     if (foundMeal) {
       foundMeal.mealTitle = req.body.mealTitle;
       foundMeal.description = req.body.description;
@@ -67,6 +67,22 @@ class mealController {
     return res.status(404).json({
       status: 'Error',
       message: 'Meal not found',
+    });
+  }
+
+  static removeMeal(req, res) {
+    const foundMeal = meals.find(meal => meal.id === parseInt(req.params.mealId, 10));
+    if (foundMeal) {
+      meals.splice(foundMeal.id - 1, 1);
+      return res.status(200).json({
+        meals,
+        status: 'Success',
+        message: 'Meal was successfully remove from meals option',
+      });
+    }
+    return res.status(404).json({
+      status: 'error',
+      message: 'Meal is not found in the meal option',
     });
   }
 }

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Book-A-Meal</title>
+  <link rel="stylesheet" href="./assets/css/layout.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
+  <link rel="stylesheet" href="./assets/css/nav-base.css">
+  <link rel="stylesheet" href="./assets/css/table.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/css/modal.css">
+  <link rel="stylesheet" href="./assets/css/account.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="dashboard">
+        <section class="menu-section">
+          <div class="container2 mt-0">
+              <div class="nav-mixed menu">
+                  <nav id="single-nav" class="logo" role="navigation">
+                      <ul>
+                          <li><a href="index.html" class="logo">Book-A-Meal</a></li>
+                      </ul>
+                  </nav><!-- #multi-level-nav .multi-level-nav -->
+                  <nav id="social-menu" class="social-menu" role="navigation">
+                      <ul>
+                          <li>
+                              <a href="setmenu.html">
+                                <button class="btn btn-transparent"> Set Menu</button>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="menupage.html">
+                                <button class="btn btn-transparent">Menu</button>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="summary.html">
+                                <button class="btn btn-transparent"> Summary</button>
+                              </a>
+                          </li>
+                          <li>
+                            <a href="dashboard.html">
+                              <button class="btn btn-light"><i class="fa fa-user"></i> Sullivan</button>
+                            </a>
+                          </li>
+                      </ul>
+                  </nav><!-- .social-menu -->
+              </div><!-- .mixed-menu -->
+          </div>
+        </section><!-- .menu-section -->
+        <section>
+          <div class="container2">
+            <div class="dashboard-intro">
+                <h1 class="py-10 orangered">Welcome, Sullivan</h1>
+                <div class="row">
+                  <div class="column">
+                    <div class="caterer-pix">
+                      <img class="im" src="./assets/images/chef.png" width="70%">
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="caterer-details">
+                      <h3>Ukaegbu Sullivan Wisdom</h3>
+                      <p>Foodmonger Inc</p>
+                      <p>+2348038750897</p>
+                    </div>
+                  </div>
+                  <div class="column"></div>
+                  <div class="column">
+                  </div>
+                  <div class="column">
+                      <div class="mealcard">
+                        <div class="mealcard-avatar">
+                          <img class="im" src="./assets/images/pot.png" alt="pot" width="50%">
+                        </div><!--end mealcard-avatar-->
+                        <div class="mealcard-directive"></div>
+                        <button id="modalBtn" class="btn btn-order"><i class="fa fa-plus"></i> Add Meal options</button>
+                      </div><!--end meal-card-->
+                  </div><!--end column-->
+                </div>
+            </div><!--end dashboard-intro-->
+              <div class="table-responsive-vertical">
+                <table class="table table-bordered table-striped table-mc-red">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Date</th>
+                      <th>Meal</th>
+                      <th>Action</th>
+                      <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-title="No">1</td>
+                      <td data-title="Date">4/18/2018</td>
+                      <td data-title="Item">Fried rice</td>
+                      <td data-title="Action"><button class="btn btn-blue"><i class="fa fa-edit"></i> Edit</button></td>
+                      <td data-title="Action"><button class="btn btn-danger"><i class="fa fa-times"></i> Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td data-title="No">2</td>
+                        <td data-title="Date">4/18/2018</td>
+                        <td data-title="Item">Egg Sauce</td>
+                        <td data-title="Action"><button class="btn btn-blue"><i class="fa fa-edit"></i> Edit</button></td>
+                        <td data-title="Action"><button class="btn btn-danger"><i class="fa fa-times"></i> Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td data-title="No">3</td>
+                        <td data-title="Date">4/18/2018</td>
+                        <td data-title="Item">Fried Yam</td>
+                        <td data-title="Action"><button class="btn btn-blue"><i class="fa fa-edit"></i> Edit</button></td>
+                        <td data-title="Action"><button class="btn btn-danger"><i class="fa fa-times"></i> Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td data-title="No">4</td>
+                        <td data-title="Date">4/18/2018</td>
+                        <td data-title="Item">Sweet Potato</td>
+                        <td data-title="Action"><button class="btn btn-blue"><i class="fa fa-edit"></i> Edit</button></td>
+                        <td data-title="Action"><button class="btn btn-danger"><i class="fa fa-times"></i> Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td data-title="No">5</td>
+                        <td data-title="Date">4/18/2018</td>
+                        <td data-title="Item">Karkashi</td>
+                        <td data-title="Action"><button class="btn btn-blue"><i class="fa fa-edit"></i> Edit</button></td>
+                        <td data-title="Action"><button class="btn btn-danger"><i class="fa fa-times"></i> Delete</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </section>
+        <section class="footer">
+              <div class="footer-body">
+                <div class="container2">
+                    <ul>
+                        <li>Privacy</li>
+                        <li>&copy; <i class="fa fa-shopping-cart"></i> Book-A-Meal 2018</li>
+                    </ul>
+                </div>
+              </div>
+        </section><!--end footer-->
+    </div>
+  </div>
+  <div id="simpleModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+            <span class="closeBtn">&times;</span>
+            <h2>Add Meal Option</h2>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-row">
+                  <label for="name">Meal:</label>
+                  <input type="text" class="form-control" placeholder="Meal name">
+                </div>
+                <div class="form-row">
+                    <label for="name">Price:</label>
+                    <input type="text" class="form-control" placeholder="Price">
+                </div>
+                <div class="form-row">
+                    <label for="name">Quantity:</label>
+                    <input type="text" class="form-control" placeholder="Quantity">
+                </div>
+                <div class="form-row">
+                  <label for="name">Date</label>
+                  <input type="date" class="form-control" placeholder="Date">
+                </div>
+            </form>
+        </div><!--end modal body-->
+        <div class="modal-footer">
+          <button class="btn btn-order"><i class="fa fa-plus"></i> Add</button>
+        </div>
+      </div>
+    </div>
+    <div id="simpleModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="error-msg">
+            <p>Are you sure you want to delete this item?</p>
+          </div>
+        </div><!--end modal body-->
+        <div class="modal-footer">
+          <button class="btn btn-order"><i class="fa fa-times"></i> Delete</button>
+        </div>
+      </div>
+    </div><!--end modal-->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

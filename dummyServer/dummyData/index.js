@@ -1,18 +1,9 @@
-const menu = [
-  {
-    id: 1,
-    title: '',
-    day: '',
-    meals: [
-      {
-        id: 1,
-        title: 'Oha Soup',
-        description: 'Delicious Soup',
-        price: 700,
-        image: 'soup_image'
-      },
-    ]
-  }
-];
+import meals from './meal';
+import menu from './menu';
+import order from './order';
 
-export default menu;
+export default {
+  meals,
+  menu,
+  order,
+};

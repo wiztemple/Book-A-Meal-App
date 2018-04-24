@@ -32,6 +32,14 @@ class menuController {
       status: 'Fail',
     });
   }
+
+  static getMenu(req, res) {
+    res.status(200).json({
+      availableMenu: menu,
+      status: 'Success',
+      message: 'Available Menu',
+    });
+  }
 }
 
 export default menuController;

@@ -2,7 +2,7 @@ import database from '../dummyData';
 
 const { meals } = database;
 
-class mealController {
+class MealController {
   static addMeal(req, res) {
     const {
       mealTitle,
@@ -87,4 +87,4 @@ class mealController {
   }
 }
 
-export default mealController;
+export default MealController;

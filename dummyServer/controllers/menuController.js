@@ -2,15 +2,15 @@ import database from '../dummyData';
 
 const { menu } = database;
 
-class menuController {
+class MenuController {
   static setMenu(req, res) {
     const { menuTitle, day, meals } = req.body;
     const id = menu[menu.length - 1].id + 1;
     const addedMenu = {
       id, menuTitle, day, meals,
     };
-    const newLocal = menu.find(singleMenu => (singleMenu.menuTitle.toLowerCase() === menuTitle.toLowerCase()));
-    const foundMenu = newLocal;
+    const newMenu = menu.find(singleMenu => (singleMenu.menuTitle.toLowerCase() === menuTitle.toLowerCase()));
+    const foundMenu = newMenu;
     if (!foundMenu) {
       menu.push(addedMenu);
       return res.status(201).json({
@@ -42,4 +42,4 @@ class menuController {
   }
 }
 
-export default menuController;
+export default MenuController;

@@ -37,5 +37,13 @@ class OrderController {
       status: 'Fail',
     });
   }
+
+  static getAllOrders(req, res) {
+    return res.status(200).json({
+      AllOrders: orders,
+      status: 'Success',
+      message: 'All orders',
+    });
+  }
 }
 export default OrderController;

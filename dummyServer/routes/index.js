@@ -16,6 +16,9 @@ const routes = (app) => {
 
   // set a menu
   app.post('/api/v1/menu', menuController.setMenu);
+
+  // get all menu
+  app.get('/api/v1/menu', menuController.getMenu);
 };
 
 

@@ -23,7 +23,7 @@ class OrderController {
       quantity,
       totalPrice,
     };
-    const foundOrder = orders.find(order => (order.mealId === mealId));
+    const foundOrder = orders.find(order => order.id === parseInt(req.params.orderId, 10));
     if (!foundOrder) {
       orders.push(addedOrder);
       res.status(201).json({

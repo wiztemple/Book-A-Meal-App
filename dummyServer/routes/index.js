@@ -24,6 +24,8 @@ const routes = (app) => {
 
   // make order
   app.post('/api/v1/order', OrderController.orderMeal);
+  // get all orders
+  app.get('/api/v1/order', OrderController.getAllOrders);
 };
 
 

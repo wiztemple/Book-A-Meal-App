@@ -45,5 +45,24 @@ class OrderController {
       message: 'All orders',
     });
   }
+
+  static updateOrder(req, res) {
+    const foundOrder = orders.find(order => order.id === parseInt(req.params.orderId, 10));
+    console.log(foundOrder);
+    if (foundOrder) {
+      foundOrder.mealId = req.body.mealId;
+      foundOrder.quantity = req.body.quantity;
+      return res.status(200).json({
+        foundOrder,
+        status: 'Success',
+        message: 'Order updated successfully',
+      });
+    }
+    return res.status(404).json({
+      status: 'Error',
+      message: 'Order not found',
+    });
+  }
+
 }
 export default OrderController;

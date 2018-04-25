@@ -26,6 +26,8 @@ const routes = (app) => {
   app.post('/api/v1/order', OrderController.orderMeal);
   // get all orders
   app.get('/api/v1/order', OrderController.getAllOrders);
+  // update order
+  app.put('api/v1/order/:orderId', OrderController.updateOrder);
 };
 
 

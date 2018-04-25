@@ -4,7 +4,7 @@
   "description": "Book-A-Meal is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc --reporter=html --reporter=text mocha ./dummyServer/test/test.js --exit --compilers js:babel-core/register",
     "lint": "eslint **/*.js --fix",
     "babel-node": "babel-node ./dummyServer/server.js --presets=env",
     "dev-server": "nodemon --exec npm run babel-node -- ./dummyServer/server.js"
@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/wiztemple/Book-A-Meal-App#readme",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
     "body-parser": "^1.18.2",
     "cross-env": "^5.1.4",
     "dotenv": "^5.0.1",
@@ -36,15 +38,21 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
+    "babel-plugin-istanbul": "^4.1.6",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-http": "^4.0.0",
+    "coveralls": "^3.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "mocha": "^5.1.1"
+    "istanbul": "^0.4.5",
+    "mocha": "^5.1.1",
+    "nyc": "^11.7.1",
+    "sinon": "^4.5.0",
+    "supertest": "^3.0.0"
   }
 }

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --fix",
+    "lint": "eslint **/*.js --fix",
     "babel-node": "babel-node ./dummyServer/server.js --presets=env",
     "dev-server": "nodemon --exec npm run babel-node -- ./dummyServer/server.js"
   },
@@ -25,8 +25,10 @@
   "homepage": "https://github.com/wiztemple/Book-A-Meal-App#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cross-env": "^5.1.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "express-validator": "^5.1.2",
     "validator": "^9.4.1",
     "volleyball": "^1.4.1"
   },

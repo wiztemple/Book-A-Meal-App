@@ -1,4 +1,4 @@
-const menu =
+const menu = [
   {
     id: 1,
     menuTitle: 'African Delicacies',
@@ -19,6 +19,8 @@ const menu =
         imageUrl: 'https://pixabay.com/en/spaghetti-pasta-noodles-italian-2931846/',
       },
     ],
-  };
+  },
+];
+
 
 export default menu;

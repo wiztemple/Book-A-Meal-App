@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">43.33% </span>
+        <span class="strong">93.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>13/30</span>
+        <span class='fraction'>28/30</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">70% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/10</span>
+        <span class='fraction'>7/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/3</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">44.44% </span>
+        <span class="strong">92.59% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/27</span>
+        <span class='fraction'>25/27</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -181,7 +181,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,36 +189,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -230,7 +230,7 @@
 &nbsp;
 const { meals } = database;
 &nbsp;
-class mealController {
+class MealController {
   static addMeal(req, res) {
     const {
       mealTitle,
@@ -271,7 +271,7 @@ class mealController {
   }
 &nbsp;
   static getAllMeals(req, res) {
-<span class="cstat-no" title="statement not covered" >    return res.status(200).json({</span>
+    return res.status(200).json({
       Allmeals: meals,
       status: 'Success',
       message: 'All meals',
@@ -279,14 +279,14 @@ class mealController {
   }
 &nbsp;
   static updateMeal(req, res) {
-    const foundMeal = <span class="cstat-no" title="statement not covered" >meals.find(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >meal =&gt;</span></span></span>
+    const foundMeal = meals.find(meal =&gt;
       meal.id === parseInt(req.params.mealId, 10));
-<span class="cstat-no" title="statement not covered" >    if (foundMeal) {</span>
-<span class="cstat-no" title="statement not covered" >      foundMeal.mealTitle = req.body.mealTitle;</span>
-<span class="cstat-no" title="statement not covered" >      foundMeal.description = req.body.description;</span>
-<span class="cstat-no" title="statement not covered" >      foundMeal.price = req.body.price;</span>
-<span class="cstat-no" title="statement not covered" >      foundMeal.imageUrl = req.body.imageUrl;</span>
-<span class="cstat-no" title="statement not covered" >      return res.status(200).json({</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (foundMeal) {
+      foundMeal.mealTitle = req.body.mealTitle;
+      foundMeal.description = req.body.description;
+      foundMeal.price = req.body.price;
+      foundMeal.imageUrl = req.body.imageUrl;
+      return res.status(200).json({
         foundMeal,
         status: 'Success',
         message: 'Meal updated successfully',
@@ -299,30 +299,30 @@ class mealController {
   }
 &nbsp;
   static removeMeal(req, res) {
-    const foundMeal = <span class="cstat-no" title="statement not covered" >meals.find(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >meal =&gt; meal.id === parseInt(req.params.mealId, 10));</span></span></span>
-<span class="cstat-no" title="statement not covered" >    if (foundMeal) {</span>
-<span class="cstat-no" title="statement not covered" >      meals.splice(foundMeal.id - 1, 1);</span>
-<span class="cstat-no" title="statement not covered" >      return res.status(200).json({</span>
+    const foundMeal = meals.find(meal =&gt; meal.id === parseInt(req.params.mealId, 10));
+    if (foundMeal) {
+      meals.splice(foundMeal.id - 1, 1);
+      return res.status(200).json({
         meals,
         status: 'Success',
         message: 'Meal was successfully remove from meals option',
       });
     }
-<span class="cstat-no" title="statement not covered" >    return res.status(404).json({</span>
+    return res.status(404).json({
       status: 'error',
       message: 'Meal is not found in the meal option',
     });
   }
 }
 &nbsp;
-export default mealController;
+export default MealController;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Apr 25 2018 09:04:02 GMT+0100 (W. Central Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Apr 26 2018 15:38:51 GMT+0100 (W. Central Africa Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

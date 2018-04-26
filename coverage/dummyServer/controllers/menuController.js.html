@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">6.25% </span>
+        <span class="strong">93.75% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/16</span>
+        <span class='fraction'>15/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>4/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">6.67% </span>
+        <span class="strong">93.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/15</span>
+        <span class='fraction'>14/15</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -96,38 +96,38 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,39 +140,39 @@
 &nbsp;
 const { menu } = database;
 &nbsp;
-class menuController {
-  static setMenu(req, res) <span class="cstat-no" title="statement not covered" >{</span>
-    const { menuTitle, day, meals } = <span class="cstat-no" title="statement not covered" >req.body;</span>
-    const id = <span class="cstat-no" title="statement not covered" >menu[menu.length - 1].id + 1;</span>
-    const addedMenu = <span class="cstat-no" title="statement not covered" >{</span>
+class MenuController {
+  static setMenu(req, res) {
+    const { menuTitle, day, meals } = req.body;
+    const id = menu[menu.length - 1].id + 1;
+    const addedMenu = {
       id, menuTitle, day, meals,
     };
-    const newLocal = <span class="cstat-no" title="statement not covered" >menu.find(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >singleMenu =&gt; (singleMenu.menuTitle.toLowerCase() === menuTitle.toLowerCase()));</span></span></span>
-    const foundMenu = <span class="cstat-no" title="statement not covered" >newLocal;</span>
-<span class="cstat-no" title="statement not covered" >    if (!foundMenu) {</span>
-<span class="cstat-no" title="statement not covered" >      menu.push(addedMenu);</span>
-<span class="cstat-no" title="statement not covered" >      return res.status(201).json({</span>
+    const newMenu = menu.find(singleMenu =&gt; (singleMenu.menuTitle.toLowerCase() === menuTitle.toLowerCase()));
+    const foundMenu = newMenu;
+    if (!foundMenu) {
+      menu.push(addedMenu);
+      return res.status(201).json({
         menu: addedMenu,
         status: 'Success',
         message: 'Menu was successfully set',
       });
     }
-<span class="cstat-no" title="statement not covered" >    if (foundMenu) {</span>
-<span class="cstat-no" title="statement not covered" >      if (foundMenu.id === id) {</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (foundMenu) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (foundMenu.id === id) {
 <span class="cstat-no" title="statement not covered" >        return res.status(409).json({</span>
           message: `A menu with this '${id}' already exist`,
           status: 'Fail',
         });
       }
     }
-<span class="cstat-no" title="statement not covered" >    return res.status(409).json({</span>
+    return res.status(409).json({
       message: `A menu with this '${id}' already exist`,
       status: 'Fail',
     });
   }
 &nbsp;
   static getMenu(req, res) {
-<span class="cstat-no" title="statement not covered" >    res.status(200).json({</span>
+    res.status(200).json({
       availableMenu: menu,
       status: 'Success',
       message: 'Available Menu',
@@ -180,14 +180,14 @@ class menuController {
   }
 }
 &nbsp;
-export default menuController;
+export default MenuController;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Apr 25 2018 09:04:02 GMT+0100 (W. Central Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Apr 26 2018 15:38:51 GMT+0100 (W. Central Africa Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

@@ -1,6 +1,6 @@
 # Book-A-Meal-App
 
-[https://coveralls.io/repos/github/wiztemple/Book-A-Meal-App/badge.svg?branch=master(Coverage Status)!:https://coveralls.io/github/wiztemple/Book-A-Meal-App?branch=master]
+[![Coverage Status](https://coveralls.io/repos/github/wiztemple/Book-A-Meal-App/badge.svg?branch=157141986-Chore-test-all-routes)](https://coveralls.io/github/wiztemple/Book-A-Meal-App?branch=157141986-Chore-test-all-routes)
 
 Book-A-Meal-App is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat.
 

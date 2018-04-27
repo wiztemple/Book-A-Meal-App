@@ -8,6 +8,7 @@
     "test": "nyc --reporter=html --reporter=text mocha ./dummyServer/test/test.js --exit --compilers js:babel-core/register",
     "lint": "eslint **/*.js --fix",
     "babel-node": "babel-node ./dummyServer/server.js --presets=env",
+    "start": "nodemon --exec npm run babel-node -- ./dummyServer/server.js",
     "dev-server": "nodemon --exec npm run babel-node -- ./dummyServer/server.js"
   },
   "repository": {

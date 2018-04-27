@@ -27,7 +27,9 @@ const routes = (app) => {
   // get all orders
   app.get('/api/v1/order', OrderController.getAllOrders);
   // update order
-  app.put('api/v1/order/:orderId', OrderController.updateOrder);
+  app.put('/api/v1/order/:orderId', OrderController.updateOrder);
+  // delete an order
+  app.delete('/api/v1/order/:orderId', OrderController.removeOrder);
 };
 
 

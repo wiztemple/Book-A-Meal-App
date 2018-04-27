@@ -19,14 +19,6 @@ class MenuController {
         message: 'Menu was successfully set',
       });
     }
-    if (foundMenu) {
-      if (foundMenu.id === id) {
-        return res.status(409).json({
-          message: `A menu with this '${id}' already exist`,
-          status: 'Fail',
-        });
-      }
-    }
     return res.status(409).json({
       message: `A menu with this '${id}' already exist`,
       status: 'Fail',

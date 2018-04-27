@@ -23,13 +23,13 @@ class OrderController {
       quantity,
       totalPrice,
     };
-    const foundOrder = orders.find(order => order.id === parseInt(req.params.orderId, 10));
-    if (!foundOrder) {
+    const foundOrder = orders.findIndex(order => order.id === parseInt(req.params.orderId, 10));
+    if (foundOrder < 0) {
       orders.push(addedOrder);
-      res.status(201).json({
+      return res.status(201).json({
         order: orders,
         status: 'Success',
-        message: 'Your Order was successfully made',
+        message: 'Order was successfully made',
       });
     }
     return res.status(409).json({
@@ -39,6 +39,7 @@ class OrderController {
   }
 
   static getAllOrders(req, res) {
+    console.log('Testing');
     return res.status(200).json({
       AllOrders: orders,
       status: 'Success',
@@ -47,16 +48,15 @@ class OrderController {
   }
 
   static updateOrder(req, res) {
-    const foundOrder = orders.find(order => order.id === parseInt(req.params.orderId, 10));
-    console.log(foundOrder);
-    if (foundOrder) {
-      foundOrder.mealId = req.body.mealId;
-      foundOrder.quantity = req.body.quantity;
-      return res.status(200).json({
-        foundOrder,
-        status: 'Success',
-        message: 'Order updated successfully',
-      });
+    const orderIndex = orders.findIndex(order => order.id === parseInt(req.params.orderId, 10));
+    if (orderIndex >= 0) {
+      if (orders[orderIndex].mealId === req.body.mealId) {
+        orders[orderIndex].quantity = req.body.quantity;
+        return res.status(200).json({
+          status: 'Success',
+          message: 'Order updated successfully',
+        });
+      }
     }
     return res.status(404).json({
       status: 'Error',
@@ -64,5 +64,20 @@ class OrderController {
     });
   }
 
+  static removeOrder(req, res) {
+    const foundOrder = orders.find(order => order.id === parseInt(req.params.orderId, 10));
+    if (foundOrder) {
+      orders.splice(foundOrder.id - 1, 1);
+      return res.status(200).json({
+        orders,
+        status: 'Success',
+        message: 'Order was successfuly removed',
+      });
+    }
+    return res.status(404).json({
+      status: 'error',
+      message: 'Order not found',
+    });
+  }
 }
 export default OrderController;

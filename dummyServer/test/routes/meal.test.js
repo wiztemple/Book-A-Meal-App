@@ -11,7 +11,6 @@ describe('API to POST meal', () => {
     chai.request(app)
       .post('/api/v1/meals')
       .send({
-        id: 1,
         mealTitle: 'Strawberries',
         description: 'Fruity delicacy',
         price: 1000,
@@ -39,7 +38,7 @@ describe('API to POST meal', () => {
         done();
       });
   });
-  it('Return 404 for post without mealTitle', (done) => {
+  it('Return 400 for post without mealTitle', (done) => {
     chai.request(app)
       .post('/api/v1/meals')
       .send({
@@ -51,12 +50,12 @@ describe('API to POST meal', () => {
       })
       .end((err, res) => {
         expect(res).to.have.status(400);
-        expect(res.body.message).to.equal('meal title cannot be empty');
+        expect(res.body.message).to.equal('Bad Request');
         done();
       });
   });
 });
-
+ 
 describe('API to GET all meals', () => {
   it('Should return 200 if successful', (done) => {
     chai.request(app)
@@ -73,7 +72,6 @@ describe('API to update meal', () => {
     chai.request(app)
       .put('/api/v1/meals/1')
       .send({
-        id: 2,
         mealTitle: 'Strawberries',
         description: 'Fruity delicacy',
         price: 1000,

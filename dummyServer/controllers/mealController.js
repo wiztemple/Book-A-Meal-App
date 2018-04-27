@@ -10,6 +10,11 @@ class MealController {
       price,
       imageUrl,
     } = req.body;
+    if (!mealTitle.trim() || !description.trim() || price <= 0 || !imageUrl.trim()) {
+      return res.status(400).json({
+        message: 'Bad Request',
+      });
+    }
     const id = meals[meals.length - 1].id + 1;
     const addedMeal = {
       id,
@@ -51,15 +56,26 @@ class MealController {
   }
 
   static updateMeal(req, res) {
-    const foundMeal = meals.find(meal =>
+    const {
+      mealTitle,
+      description,
+      price,
+      imageUrl,
+    } = req.body;
+    if (!mealTitle.trim() || !description.trim() || price <= 0 || !imageUrl.trim()) {
+      return res.status(400).json({
+        message: 'Bad Request',
+      });
+    }
+    const foundMeal = meals.findIndex(meal =>
       meal.id === parseInt(req.params.mealId, 10));
-    if (foundMeal) {
-      foundMeal.mealTitle = req.body.mealTitle;
-      foundMeal.description = req.body.description;
-      foundMeal.price = req.body.price;
-      foundMeal.imageUrl = req.body.imageUrl;
+    console.log(foundMeal);
+    if (foundMeal >= 0) {
+      meals[foundMeal].mealTitle = req.body.mealTitle;
+      meals[foundMeal].description = req.body.description;
+      meals[foundMeal].price = req.body.price;
+      meals[foundMeal].imageUrl = req.body.imageUrl;
       return res.status(200).json({
-        foundMeal,
         status: 'Success',
         message: 'Meal updated successfully',
       });

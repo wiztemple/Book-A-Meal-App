@@ -3,7 +3,7 @@ import database from '../dummyData';
 const { orders } = database;
 
 class OrderController {
-  static orderMeal(req, res) {
+  static orderMeal(request, response) {
     const {
       mealId,
       timeOrdered,
@@ -11,7 +11,7 @@ class OrderController {
       receivedBy,
       quantity,
       totalPrice,
-    } = req.body;
+    } = request.body;
 
     const id = orders[orders.length - 1].id + 1;
     const addedOrder = {
@@ -23,23 +23,22 @@ class OrderController {
       quantity,
       totalPrice,
     };
-    const foundOrder = orders.findIndex(order => order.id === parseInt(req.params.orderId, 10));
+    const foundOrder = orders.findIndex(order => order.id === parseInt(request.params.orderId, 10));
     if (foundOrder < 0) {
       orders.push(addedOrder);
-      return res.status(201).json({
+      return response.status(201).json({
         order: orders,
         status: 'Success',
         message: 'Order was successfully made',
       });
     }
-    return res.status(409).json({
+    return response.status(409).json({
       message: `A meal with this '${id}' is already in the meal options`,
       status: 'Fail',
     });
   }
 
   static getAllOrders(req, res) {
-    console.log('Testing');
     return res.status(200).json({
       AllOrders: orders,
       status: 'Success',
@@ -47,18 +46,18 @@ class OrderController {
     });
   }
 
-  static updateOrder(req, res) {
-    const orderIndex = orders.findIndex(order => order.id === parseInt(req.params.orderId, 10));
+  static updateOrder(request, response) {
+    const orderIndex = orders.findIndex(order => order.id === parseInt(request.params.orderId, 10));
     if (orderIndex >= 0) {
-      if (orders[orderIndex].mealId === req.body.mealId) {
-        orders[orderIndex].quantity = req.body.quantity;
-        return res.status(200).json({
+      if (orders[orderIndex].mealId === request.body.mealId) {
+        orders[orderIndex].quantity = request.body.quantity;
+        return response.status(200).json({
           status: 'Success',
           message: 'Order updated successfully',
         });
       }
     }
-    return res.status(404).json({
+    return response.status(404).json({
       status: 'Error',
       message: 'Order not found',
     });

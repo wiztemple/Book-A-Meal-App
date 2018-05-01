@@ -7,7 +7,7 @@ const { expect } = chai;
 chai.use(chaiHttp);
 
 describe('API to POST order', () => {
-  it('Return 201 for a successful post', (done) => {
+  it('should return 201 for a successful post', (done) => {
     chai.request(app)
       .post('/api/v1/order')
       .send({
@@ -19,9 +19,10 @@ describe('API to POST order', () => {
         quantity: 2,
         totalPrice: 3333,
       })
-      .end((err, res) => {
-        expect(res).to.have.status(201);
-        expect(res.body.message).to.equal('Order was successfully made');
+      .end((err, response) => {
+        expect(response).to.have.status(201);
+        expect(response.body.message).to.equal('Order was successfully made');
+        expect(response.body).to.be.an('object');
         done();
       });
   });
@@ -31,8 +32,9 @@ describe('API to GET all orders', () => {
   it('Should return 200 if successful', (done) => {
     chai.request(app)
       .get('/api/v1/order')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
+      .end((error, response) => {
+        expect(response).to.have.status(200);
+        expect(response.body).to.be.an('object');
         done();
       });
   });
@@ -46,28 +48,30 @@ describe('API to update order', () => {
         mealId: 1,
         quantity: 3,
       })
-      .end((err, res) => {
-        expect(res.body.message).to.equal('Order updated successfully');
-        expect(res.status).to.equal(200);
-        expect(res.body).to.have.property('status').equal('Success');
+      .end((err, response) => {
+        expect(response.body.message).to.equal('Order updated successfully');
+        expect(response.status).to.equal(200);
+        expect(response.body).to.have.property('status').equal('Success');
+        expect(response.body).to.be.an('object');
         done();
       });
   });
-  it('Return 200 if successful', (done) => {
+  it('it should return 200 if successful', (done) => {
     chai.request(app)
       .put('/api/v1/order/1')
       .send({
         mealId: 10,
         quantity: 3,
       })
-      .end((err, res) => {
-        expect(res).to.have.status(404);
+      .end((error, response) => {
+        expect(response).to.have.status(404);
+        expect(response.body).to.be.an('object');
         done();
       });
   });
 });
 describe('API to delete order', () => {
-  it('Return 200 for succesful delete', (done) => {
+  it('should return 200 if an order was successfully deleted', (done) => {
     chai.request(app)
       .delete('/api/v1/order/1')
       .end((err, res) => {
@@ -75,11 +79,11 @@ describe('API to delete order', () => {
         done();
       });
   });
-  it('Return 404 if parameter is not found', (done) => {
+  it('should return 404 if parameter is not found', (done) => {
     chai.request(app)
       .delete('/api/v1/order/50')
-      .end((err, res) => {
-        expect(res).to.have.status(404);
+      .end((error, response) => {
+        expect(response).to.have.status(404);
         done();
       });
   });

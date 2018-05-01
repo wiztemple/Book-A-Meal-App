@@ -3,8 +3,8 @@ import database from '../dummyData';
 const { menu } = database;
 
 class MenuController {
-  static setMenu(req, res) {
-    const { menuTitle, day, meals } = req.body;
+  static setMenu(request, response) {
+    const { menuTitle, day, meals } = request.body;
     const id = menu[menu.length - 1].id + 1;
     const addedMenu = {
       id, menuTitle, day, meals,
@@ -13,20 +13,20 @@ class MenuController {
     const foundMenu = newMenu;
     if (!foundMenu) {
       menu.push(addedMenu);
-      return res.status(201).json({
+      return response.status(201).json({
         menu: addedMenu,
         status: 'Success',
         message: 'Menu was successfully set',
       });
     }
-    return res.status(409).json({
+    return response.status(409).json({
       message: `A menu with this '${id}' already exist`,
       status: 'Fail',
     });
   }
 
-  static getMenu(req, res) {
-    res.status(200).json({
+  static getMenu(request, response) {
+    response.status(200).json({
       availableMenu: menu,
       status: 'Success',
       message: 'Available Menu',

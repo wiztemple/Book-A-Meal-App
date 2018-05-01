@@ -6,7 +6,7 @@ const { expect } = chai;
 
 chai.use(chaiHttp);
 describe('API to POST menu', () => {
-  it('Return 409 for existing menu id', (done) => {
+  it('should return 409 for existing menu id', (done) => {
     chai.request(app)
       .post('/api/v1/menu')
       .send({
@@ -30,13 +30,13 @@ describe('API to POST menu', () => {
           },
         ],
       })
-      .end((err, res) => {
-        expect(res).to.have.status(409);
-        expect(res.body.status).to.equal('Fail');
+      .end((error, response) => {
+        expect(response).to.have.status(409);
+        expect(response.body.status).to.equal('Fail');
         done();
       });
   });
-  it('Return 201 for a successful post', (done) => {
+  it('it should return 201 for a successful post', (done) => {
     chai.request(app)
       .post('/api/v1/menu')
       .send({
@@ -60,9 +60,10 @@ describe('API to POST menu', () => {
           },
         ],
       })
-      .end((err, res) => {
-        expect(res).to.have.status(201);
-        expect(res.body.message).to.equal('Menu was successfully set');
+      .end((error, response) => {
+        expect(response).to.have.status(201);
+        expect(response.body.message).to.equal('Menu was successfully set');
+        expect(response.body).to.be.an('object');
         done();
       });
   });
@@ -72,8 +73,9 @@ describe('API to GET menu', () => {
   it('Should return 200 if successful', (done) => {
     chai.request(app)
       .get('/api/v1/menu')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
+      .end((error, response) => {
+        expect(response).to.have.status(200);
+        expect(response).to.be.an('object');
         done();
       });
   });

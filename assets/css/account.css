@@ -1,9 +1,6 @@
-
-/* #account{
-  background: dodgerblue;
-  height:100vh;
-  width: 100%;
-} */
+body {
+  overflow: hidden;
+}
 *, ::after, ::before {
   box-sizing: border-box;
 }
@@ -14,17 +11,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* align-self: center; */
+  background: url('../images/eat.jpg');
+  background-size: cover;
+  background-position: center;
 }
 .form-row{
   margin-bottom: 1rem;
 }
-
+.form-row > select {
+  padding: .375rem .75rem;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 .form-card{
   position: relative;
   background: #fff;
   color: #222;
-  padding: 10px;
+  padding: .375rem .75rem;;
   border-top:6px solid orangered;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -56,15 +66,13 @@ label {
   background:orangered;
   font-family: 'Maven Pro', sans-serif;
   color:#fff;
-  /* border: 3px solid transparent; */
-  /* box-shadow:0 2px 6px 0 hsla(0,0%,0%,0.2); */
   box-shadow:2px 2px 20px -2px rgba(60,51,176,0.5);
 }
 .account__btn > a {
   color:#fff;
 }
 .account__btn:hover, .account__btn:focus{
-  background-color:orange;
+  background-color:rgba(255,69,0,0.9);
   color:#fff;
 }
 .account__btn > a:hover, .account__btn > a:focus {
@@ -72,22 +80,35 @@ label {
 }
 .signin > h2 > a{
   text-decoration: none;
-  color: orangered;
+  color:#fff;
+}
+.signin > p {
+  color:#fff;
 }
 .signin > p > a{
   text-decoration: none;
+  color:#fff;
+  background: orangered;
+  padding: 5px;
+  border-radius: 10px;
 }
 .signin > p > a:hover{
-  color:orangered;
+  color:#eee;
 }
-
+.signup > p {
+  color: #fff;
+}
 .signup > p > a{
   text-decoration: none;
+  color:#fff;
+  background: orangered;
+  padding: 5px;
+  border-radius: 10px;
 }
 .signup > p > a:hover{
-  color:orangered;
+  color:#fff;
 }
 .signup > h2 > a{
   text-decoration: none;
-  color:orangered;
+  color:#fff;
 }

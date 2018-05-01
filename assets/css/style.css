@@ -74,7 +74,6 @@ a {
 .footer-body ul li{
   display: inline-block;
 }
-/*custom elements*/
 .p5{
   padding: 5px;
 }
@@ -93,7 +92,6 @@ a {
 .mb-0{
   margin-bottom: 0px !important;
 }
-/*Typography*/
 .text-center{
   text-align: center;
 }
@@ -102,11 +100,9 @@ a {
   0px 8px 13px rgba(0,0,0,0.1),
   0px 18px 23px rgba(0,0,0,0.1);
 }
-/*colors*/
 .orangered{
   color:orangered;
 }
-/*button*/
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -185,7 +181,6 @@ a {
 .btn-transparent:focus{
   outline: none;
 }
-/*img-fluid*/
 .img-fluid{
   width:100%;
 }
@@ -198,7 +193,6 @@ a {
 .meals > h1{
   padding-bottom: 15px;
 }
-/*card*/
 .card{
   background: #fff;
   padding: 10px;
@@ -206,21 +200,10 @@ a {
   box-shadow:0 2px 6px 0 hsla(0,0%,0%,0.2);
   border-radius: 5px;
 }
-/*dashboard*/
 .dashboard{
   background:#fff;
 }
 .dashboard-intro{
   padding: 10px;
   margin-bottom: 20px;
-  /* background-color: #fff;
-  border-top:4px solid orangered;
-  box-shadow:0 2px 6px 0 hsla(0,0%,0%,0.2); */
 }
-/* .mealcard{
-  background: #fff;
-  padding: 10px;
-  /* margin-bottom: 15px; */
-  border-top:4px solid orangered;
-} */
-

@@ -80,10 +80,10 @@ label {
 }
 .signin > h2 > a{
   text-decoration: none;
-  color:#fff;
+  color:#222;
 }
 .signin > p {
-  color:#fff;
+  color:#222;
 }
 .signin > p > a{
   text-decoration: none;
@@ -100,15 +100,15 @@ label {
 }
 .signup > p > a{
   text-decoration: none;
-  color:#fff;
+  color:#222;
   background: orangered;
   padding: 5px;
   border-radius: 10px;
 }
 .signup > p > a:hover{
-  color:#fff;
+  color:#000;
 }
 .signup > h2 > a{
   text-decoration: none;
-  color:#fff;
+  color:#222;
 }

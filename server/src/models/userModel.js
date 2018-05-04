@@ -61,5 +61,20 @@ export default (sequelize, DataTypes) => {
       },
     },
   });
+
+  // User.associate = (models) => {
+  //   User.hasMany(
+  //     models.Menu,
+  //     { foreignKey: 'menuId', onDelete: 'CASCADE' },
+  //   );
+  //   User.hasMany(
+  //     models.Meals,
+  //     { foreignKey: 'mealId', onDelete: 'CASCADE' },
+  //   );
+  //   User.hasMany(
+  //     models.Order,
+  //     { foreignKey: 'orderId', onDelete: 'CASCADE' },
+  //   );
+  // };
   return User;
 };

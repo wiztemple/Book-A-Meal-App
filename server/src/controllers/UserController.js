@@ -94,4 +94,16 @@ export default class UserController {
         });
       });
   }
+
+  static getAllUsers(request, response) {
+    return db.User.findAll().then((users) => {
+      response.status(200).json({
+        status: 'success',
+        users,
+      });
+    }).catch(() => response.status(500).json({
+      status: 'error',
+      message: 'Internal server error',
+    }));
+  }
 }

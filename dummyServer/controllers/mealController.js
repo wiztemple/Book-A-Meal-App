@@ -90,9 +90,8 @@ class MealController {
     if (foundMeal) {
       meals.splice(foundMeal.id - 1, 1);
       return response.status(200).json({
-        meals,
         status: 'Success',
-        message: 'Meal was successfully remove from meals option',
+        message: 'Meal was successfully deleted from meals option',
       });
     }
     return response.status(404).json({

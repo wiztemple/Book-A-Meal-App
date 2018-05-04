@@ -22,21 +22,7 @@ describe('API to POST meal', () => {
         done();
       });
   });
-  it('should not add a meal with empty meal title', (done) => {
-    chai.request(app)
-      .post('/api/v1/meals')
-      .send({
-        mealTitle: '',
-        description: 'Fruity delicacy',
-        price: 1000,
-        imageUrl: 'https://pixabay.com/en/raspberry-berry-ripe-2023404/',
-      })
-      .end((error, response) => {
-        expect(response).to.have.status(400);
-        expect(response.body.error).to.equal('Bad request');
-        done();
-      });
-  });
+
   it('should return 201 for a successful post', (done) => {
     chai.request(app)
       .post('/api/v1/meals')

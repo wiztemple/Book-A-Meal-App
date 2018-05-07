@@ -4,6 +4,11 @@ import jwtSigner from '../helpers/jwtSigner';
 
 
 export default class UserController {
+  /**
+   *
+   * @param {object} request ,
+   * @param {*object} response ,
+   */
   static signUp(request, response) {
     const {
       firstName,
@@ -51,7 +56,11 @@ export default class UserController {
         message: 'internal server error',
       }));
   }
-
+  /**
+ *
+ * @param {object} request,
+ * @param {object} response,
+ */
   static login(request, response) {
     const {
       email,
@@ -94,7 +103,11 @@ export default class UserController {
         });
       });
   }
-
+  /**
+ *
+ * @param {object} request,
+ * @param {object} response,
+ */
   static getAllUsers(request, response) {
     return db.User.findAll().then((users) => {
       response.status(200).json({

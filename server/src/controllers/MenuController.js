@@ -1,17 +1,21 @@
 import db from '../models/index';
 
-
 export default class MenuController {
+  /**
+   *
+   * @param {object} request,
+   * @param {object} response,
+   */
   static addMenu(request, response) {
     const {
-      menuTitle,
+      menuId,
       description,
       mealId,
       userId,
     } = request.body;
     db.Menu.findOne({
       where: {
-        menuTitle,
+        id: menuId,
       },
     })
       .then((menuExists) => {
@@ -23,7 +27,7 @@ export default class MenuController {
         }
         if (!menuExists) {
           db.Menu.create({
-            menuTitle, description, mealId, userId,
+            description, mealId, userId,
           })
             .then((newMenu) => {
               response.status(201).json({

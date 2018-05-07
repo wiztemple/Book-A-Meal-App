@@ -1,14 +1,5 @@
 export default (sequelize, DataTypes) => {
   const Menu = sequelize.define('Menu', {
-    menuTitle: {
-      type: DataTypes.STRING,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'menutitle is required',
-        },
-      },
-    },
     userId: {
       type: DataTypes.INTEGER,
       validate: {
@@ -35,9 +26,6 @@ export default (sequelize, DataTypes) => {
           msg: 'mealId is required',
         },
       },
-    },
-    imageUrl: {
-      type: DataTypes.STRING,
     },
   });
 

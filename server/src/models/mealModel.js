@@ -41,10 +41,6 @@ export default (sequelize, DataTypes) => {
       models.User,
       { foreignKey: 'userId', onDelete: 'CASCADE' },
     );
-    // Meals.hasMany(
-    //   models.Order,
-    //   { foreignKey: 'orderId', onDelete: 'CASCADE' },
-    // );
   };
   return Meals;
 };

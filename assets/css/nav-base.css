@@ -15,6 +15,12 @@
 	color: #fff;
 	padding: .7em 0.1em;
 }
+.menu li a:hover {
+	border-bottom: 4px solid #fff;
+}
+.menu li .no_border:hover {
+	border-bottom: 0;
+}
 .nav-mixed {
 	display: flex;
 	flex-wrap: wrap;

@@ -15,14 +15,14 @@
   <link rel="stylesheet" href="./assets/css/account.css">
 </head>
 <body>
-  <div id="app">
+  <div class="app">
     <div class="dashboard">
       <section class="menu-section">
         <div class="container2 mt-0">
             <div class="nav-mixed menu">
               <nav id="single-nav" class="logo" role="navigation">
                 <ul>
-                  <li><a href="index.html" class="logo text-shadow">Book-A-Meal</a></li>
+                  <li><a class="no_border" href="index.html" class="logo text-shadow">Book-A-Meal</a></li>
                 </ul>
               </nav>
               <nav id="social-menu" class="social-menu" role="navigation">
@@ -38,7 +38,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="dashboard.html">
+                      <a class="no_border" href="dashboard.html">
                         <button class="btn btn-light"><i class="fa fa-user"></i> Sullivan</button>
                       </a>
                     </li>
@@ -79,44 +79,59 @@
             </div>
           </div>
           <div class="setmenu">
-            <div class="row">
-              <div class="column">
-                <div class="card">
-                  <div class="card__image"><img class="img-fluid" src="./assets/images/yam.jpeg"></div>
-                  <div class="card__title"><p class="orangered">Fried Yam</p></div>
-                  <div class="card__description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p>
+            <h1 class="text-center">Today's Menu</h1>
+              <div class="row">
+                  <div class="column">
+                    <div class="card">
+                      <div class="card_overlay">
+                        <div>
+                          <button id="modalBtn2" class="btn btn-order"><i class="fa fa-shopping-cart"></i> Order Now</button>
+                        </div>
+                      </div>
+                      <div class="card__image"><img class="img-fluid" src="./assets/images/meat.jpeg"></div>
+                      <div class="card__title">Meat</div>
+                      <div class="card__description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="column">
-                <div class="card">
-                  <div class="card__image"><img class="img-fluid" src="./assets/images/eat.jpg"></div>
-                  <div class="card__title"><p class="orangered">Fresh Sea food</p></div>
-                  <div class="card__description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p>
+                  <div class="column">
+                      <div class="card">
+                        <div class="card_overlay">
+                          <div>
+                            <button class="btn btn-order"><i class="fa fa-shopping-cart"></i> Order Now</button>
+                          </div>
+                        </div>
+                        <div class="card__image"><img class="img-fluid" src="./assets/images/yam.jpeg"></div>
+                        <div class="card__title">Fried Yam</div>
+                        <div class="card__description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p>
+                        </div>
+                      </div>
                   </div>
-                </div>
-              </div>
-              <div class="column">
-                <div class="card">
-                  <div class="card__image"><img class="img-fluid" src="./assets/images/rice.jpeg"></div>
-                  <div class="card__title"><p class="orangered">Chinese Rice</p></div>
-                  <div class="card__description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p>
+                  <div class="column">
+                      <div class="card">
+                        <div class="card_overlay">
+                          <div>
+                            <button class="btn btn-order"><i class="fa fa-shopping-cart"></i> Order Now</button>
+                          </div>
+                        </div>
+                        <div class="card__image"><img class="img-fluid" src="./assets/images/rice.jpeg"></div>
+                        <div class="card__title">Rice</div>
+                        <div class="card__description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p>
+                        </div>
+                      </div>
                   </div>
-                </div>
               </div>
-            </div>
           </div>
         </div>
       </section>
       <section class="footer">
-        <div class="footer-body">
-          <div class="container2">
-            <ul>
-              <li>Privacy</li>
-              <li>&copy; <i class="fa fa-shopping-cart"></i> Book-A-Meal 2018</li>
-            </ul>
+          <div class="footer-body">
+            <div class="container2 mt-0 mb-0">
+              <ul>
+                <li>&copy; <i class="fa fa-shopping-cart"></i> Book-A-Meal 2018. UKAEGBU SULLIVAN WISDOM. @Andela Bootcamp Project.</li>
+              </ul>
+            </div>
           </div>
-        </div>
       </section>
     </div>
   </div>
@@ -146,6 +161,37 @@
         <button class="btn btn-order"><i class="fa fa-plus"></i> Set Menu</button>
       </div>
     </div>
+  </div>
+  <div id="simpleModal2" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="closeBtn2">&times;</span>
+          <h2>Order</h2>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-row">
+              <label for="name">Customer Name:</label>
+              <input type="text" class="form-control" placeholder="Customer Name">
+            </div>
+            <div class="form-row">
+              <label for="name">Item:</label>
+              <input type="text" class="form-control" placeholder="Item">
+            </div>
+            <div class="form-row">
+                <label for="name">Quantity:</label>
+                <input type="text" class="form-control" placeholder="Quantity">
+            </div>
+            <div class="form-row">
+                <label for="name">Delivery Address:</label>
+                <input type="text" class="form-control" placeholder="Delivery Address">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-order"><i class="fa fa-plus"></i> Proceed</button>
+        </div>
+      </div>
   </div>
   <script src="assets/js/main.js"></script>
 </body>

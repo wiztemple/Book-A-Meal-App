@@ -1,19 +1,19 @@
 body {
-  overflow: hidden;
+overflow-x: hidden;
 }
 *, ::after, ::before {
   box-sizing: border-box;
 }
-#account{
+.account{
   background:#f2f2f2;
   width: 100vw;
   height:100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+ align-items: center;
   background: url('../images/eat.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center; 
 }
 .form-row{
   margin-bottom: 1rem;
@@ -38,11 +38,11 @@ body {
   border-top:6px solid orangered;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  box-shadow:26px 0 0 -13px rgba(255,255,255,0.4),
+  /* box-shadow:26px 0 0 -13px rgba(255,255,255,0.4),
              52px 0 0 -26px rgba(255,255,255,0.4),
              -30px 0 0 -15px rgba(255,255,255,0.4),
              -60px 0 0 -30px rgba(255,255,255,0.4),
-             0 0 25px rgba(255,255,255,1);
+             0 0 25px rgba(255,255,255,1); */
 }
 .form-control {
   display: block;
@@ -80,10 +80,10 @@ label {
 }
 .signin > h2 > a{
   text-decoration: none;
-  color:#222;
+  color:#fff;
 }
 .signin > p {
-  color:#222;
+  color:#fff;
 }
 .signin > p > a{
   text-decoration: none;
@@ -100,7 +100,7 @@ label {
 }
 .signup > p > a{
   text-decoration: none;
-  color:#222;
+  color:#fff;
   background: orangered;
   padding: 5px;
   border-radius: 10px;
@@ -110,5 +110,5 @@ label {
 }
 .signup > h2 > a{
   text-decoration: none;
-  color:#222;
+  color:#fff;
 }

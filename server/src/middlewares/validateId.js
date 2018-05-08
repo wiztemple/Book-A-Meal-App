@@ -1,6 +1,6 @@
 
 /**
- * @description Validate recipe id
+ * @description Validate id
  *
  * @param {Objecty} request
  * @param {Objecty} response

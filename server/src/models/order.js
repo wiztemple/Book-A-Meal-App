@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       { foreignKey: 'userId', onDelete: 'CASCADE' },
     );
     Order.hasMany(
-      models.Meals,
+      models.Meal,
       { foreignKey: 'mealId', onDelete: 'CASCADE' },
     );
   };

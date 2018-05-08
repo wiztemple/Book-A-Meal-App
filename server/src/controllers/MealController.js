@@ -6,7 +6,7 @@ export default class MealController {
       title, description, price, imageUrl,
     } = request.body;
 
-    db.Meals.findOne({
+    db.Meal.findOne({
       where: {
         title,
       },
@@ -18,36 +18,34 @@ export default class MealController {
             message: 'meal title already exist',
           });
         }
-        if (!mealExists) {
-          db.Meals.create({
-            title, description, price, imageUrl,
-          })
-            .then((newMeal) => {
-              response.status(201).json({
-                status: 'success',
-                message: 'meal successfully added',
-                newMeal,
-              });
-            });
-        }
-      }).catch((err) => {
-        console.log(err);
+      })
+      .then(() => db.Meal.create({
+        title, description, price, imageUrl,
+      }))
+      .then((newMeal) => {
+        response.status(201).json({
+          status: 'success',
+          message: 'meal successfully added',
+          newMeal,
+        });
+      })
+      .catch((error) => {
         response.status(500).json({
           status: 'error',
-          message: 'Internal error',
+          message: error.message,
         });
       });
   }
 
   static getAllMeals(request, response) {
-    return db.Meals.findAll().then((meals) => {
+    return db.Meal.findAll().then((meals) => {
       response.status(200).json({
         status: 'success',
         meals,
       });
-    }).catch(() => response.status(500).json({
+    }).catch(error => response.status(500).json({
       status: 'error',
-      message: 'Internal server error',
+      message: error.message,
     }));
   }
 
@@ -57,7 +55,7 @@ export default class MealController {
       title, description, price, imageUrl,
     } = request.body;
 
-    db.Meals.findOne({
+    db.Meal.findOne({
       where: {
         id: request.params.mealId,
       },
@@ -83,41 +81,33 @@ export default class MealController {
           });
         }
       })
-      .catch(() => response.status(500).json({
+      .catch(error => response.status(500).json({
         status: 'error',
-        message: 'Internal server error',
+        message: error.message,
       }));
   }
 
   static deleteMeal(request, response) {
-    db.Meals.findOne({
+    db.Meal.findOne({
       where: {
         id: request.params.mealId,
       },
     }).then((mealExists) => {
-      if (!mealExists) {
-        response.status(404).json({
-          status: 'fail',
-          message: `can't find a meal with that Id ${request.params.mealId}`,
-        });
-      }
       if (mealExists) {
-        db.Meals.destroy({
+        return db.Meal.destroy({
           where: {
             id: request.params.mealId,
           },
           cascade: true,
-        }).then(() => {
-          response.status(200).json({
-            status: 'success',
-            message: 'meal deleted',
-          });
         });
       }
-    }).catch(() => {
+    }).then(() => response.status(200).json({
+      status: 'success',
+      message: 'meal deleted',
+    })).catch((error) => {
       response.status(500).json({
         status: 'error',
-        message: 'Internal server error',
+        message: error.message,
       });
     });
   }

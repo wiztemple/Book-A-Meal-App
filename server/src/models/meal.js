@@ -35,14 +35,18 @@ module.exports = (sequelize, DataTypes) => {
   });
   Meal.associate = (models) => {
     // associations can be defined here
-    Meal.belongsTo(
-      models.Menu,
-      { foreignKey: 'menuId', onDelete: 'CASCADE' },
-    );
-    Meal.belongsTo(
-      models.User,
-      { foreignKey: 'userId', onDelete: 'CASCADE' },
-    );
+    // Meal.belongsTo(
+    //   models.Menu,
+    //   { foreignKey: 'menuId', onDelete: 'CASCADE' },
+    // );
+    // Meal.belongsTo(
+    //   models.User,
+    //   { foreignKey: 'userId', onDelete: 'CASCADE' },
+    // );
+    // Meal.belongsTo(
+    //   models.Order,
+    //   { foreignKey: 'orderId', onDelete: 'CASCADE' },
+    // );
   };
   return Meal;
 };

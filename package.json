@@ -6,6 +6,7 @@
   "scripts": {
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "nyc --reporter=html --reporter=text mocha ./dummyServer/test/test.js --exit --compilers js:babel-core/register",
+    "test:server": "nyc --reporter=html --reporter=text mocha ./server/src/test --exit --compilers js:babel-core/register",
     "lint": "eslint **/*.js --fix",
     "babel-node": "babel-node ./server/app.js --presets=env",
     "start": "babel-node ./server/app.js",

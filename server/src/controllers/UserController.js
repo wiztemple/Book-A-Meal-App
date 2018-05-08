@@ -2,12 +2,19 @@ import bcrypt from 'bcrypt';
 import db from '../models/index';
 import jwtSigner from '../helpers/jwtSigner';
 
-
+/**
+ * @class UserController
+ */
 export default class UserController {
   /**
-   *
+
+   * @description - This handles users registration
+  * @static
+
    * @param {object} request ,
    * @param {*object} response ,
+   *
+   * @returns {Object} Object
    */
   static signUp(request, response) {
     const {
@@ -118,5 +125,49 @@ export default class UserController {
       status: 'error',
       message: 'Internal server error',
     }));
+  }
+
+  /**
+   *
+   * @param {object} request
+   * @param {object} response
+   * @returns {object}
+   */
+  static updateUser(request, response) {
+    const { firstName, lastName } = request.body;
+
+    return db.User.findOne({
+      where: {
+        id: request.userId,
+      }
+    }).then((foundUser) => {
+      if (foundUser) {
+        const update = {
+          firstName,
+          lastName,
+        };
+        foundUser.update(update).then((updatedUser) => {
+          response.status(200).json({
+            status: 'success',
+            user: {
+              firstName: updatedUser.firstName,
+              lastName: updatedUser.lastName,
+              email: updatedUser.email,
+            },
+          });
+        });
+      }
+      if (!foundUser) {
+        return response.status(404)
+          .json({
+            status: 'fail',
+            message: `can't find user with the Id ${request.userId}`,
+          });
+      }
+    })
+      .catch(() => response.status(500).json({
+        status: 'error',
+        message: 'Internal server error'
+      }));
   }
 }

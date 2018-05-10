@@ -16,7 +16,7 @@ const verifyToken = (request, response, next) => {
     request.userId = verifiedToken.id;
     return next();
   } catch (error) {
-    return response.status(401).json({
+    return response.status(403).json({
       message: 'Unauthorized',
     });
   }

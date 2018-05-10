@@ -1,12 +1,12 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../../app';
-console.log(app);
+
 const { expect } = chai;
 chai.use(chaiHttp);
 
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTIxODE1MzYzLCJleHAiOjE1MjIyNDczNjN9.U0WCcpMiLPJpSFQBid35GU42ExV10FljUM0e_rpbvNk';
- 
+
 const Meal = {
   title: 'Vegetable soup',
   description: 'Good soup',
@@ -21,51 +21,54 @@ const User = {
   role: 'caterer',
   password: 'andela',
 };
-
-describe('POST Meal/', () => {
-  it('should be able to post a meal', (done) => {
+const userSignup = '/api/v1/auth/signup';
+const userLogin = '/api/v1/auth/login';
+// Test Signing up a user
+describe('User signup', () => {
+  it('It Should create user with right signup credentials', (done) => {
     chai.request(app)
-      .post('/api/v1/meals')
-      .set('x-access-token', token)
-      .send(Meal)
+      .post(`${userSignup}`)
+      .send(User)
       .end((error, response) => {
-        expect(response)
-          .to.have.status(201);
-        expect(response.body)
-          .to.be.a('object');
+        expect(response).to.have.status(201);
+        expect(response.body).to.be.an('object');
+        expect(response.body.message).to.equal('Account was created');
+        expect(response.body.User.firstName).to.equal(User.firstName);
+        expect(response.body.User.lastName).to.equal(User.lastName);
+        expect(response.body.User.role).to.equal(User.role);
+        expect(response.body.User.email).to.equal(User.email);
+        expect(response.body).to.have.property('token');
+        expect(response.body.token).to.be.a('string');
+        expect(response.body).to.not.have.property(User.password);
         done();
       });
   });
-
-  it('should return 403 if meal does not have a title', (done) => {
+  it('should not register a new user with an already existing email', (done) => {
     chai.request(app)
-      .post('/api/v1/meals')
-      .set('x-access-token', token)
-      .send({
-        description: 'sweet food',
-        price: 400,
-        imageUrl: 'https://www.goalmentor',
-      })
+      .post(userSignup)
+      .send(User)
       .end((error, response) => {
-        expect(response)
-          .to.have.status(403);
-        expect(response.body)
-          .to.be.a('object');
+        expect(response).to.have.status(409);
+        expect(response.body).to.be.an('object');
+        expect(response.body.message).to.equal('User with that email Id exists');
         done();
       });
   });
-  it('should return 403 if title is empty', (done) => {
+  it('should not register user with a wrong email format', (done) => {
     chai.request(app)
-      .post('/api/v1/meals')
-      .set('x-access-token', token)
+      .post(userSignup)
       .send({
-        title: '',
+        firstName: 'Sullivan',
+        lastName: 'Wisdom',
+        email: 'wiz.com',
+        role: 'caterer',
+        password: 'lastdays',
       })
-      .end((err, res) => {
-        expect(res)
-          .to.have.status(403);
-        expect(res.body)
-          .to.be.a('object');
+      .end((error, response) => {
+        expect(response).to.have.status(400);
+        expect(response.body).to.be.an('object');
+        expect(response.body.error.email)
+          .to.include('Email address is empty or invalid');
         done();
       });
   });

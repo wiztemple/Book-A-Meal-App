@@ -20,14 +20,24 @@ export default class MenuController {
       date,
     } = request.body;
     const Today = moment();
-    db.Menu.create({
-      userId: request.userId,
-      description,
-      date: date || Today,
-    }, {
-      include: [db.User],
-    })
-      .then((createdMenu) => {
+    db.Menu.findOne({
+      where: {
+        menuId: request.menuId
+      }
+    }).then((menuExist) => {
+      if (menuExist) {
+        return response.status(409).json({
+          status: 'Fail',
+          message: 'Menu already exist'
+        });
+      }
+      db.Menu.create({
+        userId: request.userId,
+        description,
+        date: date || Today,
+      }, {
+        include: [db.User],
+      }).then((createdMenu) => {
         if (createdMenu) {
           createdMenu.setMeals(meals);
           return response.status(201).json({
@@ -44,7 +54,12 @@ export default class MenuController {
         }
       }).catch(error => response.status(500).json({
         status: 'error',
-        message: error.stack,
+        message: error.message,
+      }));
+    }).catch(error =>
+      response.status(500).json({
+        status: 'error',
+        message: error.message,
       }));
   }
   /**

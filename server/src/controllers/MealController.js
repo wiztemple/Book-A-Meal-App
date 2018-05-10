@@ -30,22 +30,25 @@ export default class MealController {
             message: 'meal already exist',
           });
         }
-      })
-      .then(() => db.Meal.create({
-        title,
-        description,
-        price,
-        imageUrl,
-        userId: request.userId,
-      }))
-      .then((newMeal) => {
-        response.status(201).json({
-          status: 'success',
-          message: 'meal successfully added',
-          newMeal,
+        db.Meal.create({
+          title,
+          description,
+          price,
+          imageUrl,
+          userId: request.userId
+        }).then((newMeal) => {
+          response.status(201).json({
+            status: 'success',
+            message: 'meal successfully added',
+            newMeal,
+          });
+        }).catch((error) => {
+          response.status(500).json({
+            status: 'error',
+            message: error.message
+          });
         });
-      })
-      .catch((error) => {
+      }).catch((error) => {
         response.status(500).json({
           status: 'error',
           message: error.message,
@@ -135,7 +138,6 @@ export default class MealController {
           where: {
             id: request.params.mealId,
           },
-          cascade: true,
         });
       }
     }).then(() => response.status(200).json({

@@ -1,0 +1,53 @@
+/* Base styles that apply to all menus */
+.menu-section {
+	background-color: orangered;
+	box-shadow:0 2px 6px 0 hsla(0,0%,0%,0.2);
+}
+
+.menu ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.menu li a {
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	padding: .7em 0.1em;
+}
+
+.menu li a:hover {
+
+}
+.nav-mixed {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+@media screen and (min-width: 30em) {
+ 
+	.logo ul {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: start;
+	}
+	.logo li {
+			flex: 1 0 auto;
+			text-align:center;
+	}
+
+	
+}
+.logo ul li a {
+	font-size:22px;
+}
+.social-menu ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+/* .social-menu ul li a:hover{
+	border-bottom: 4px solid #fff;
+} */

@@ -1,20 +1,20 @@
 
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('mealmenu', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('mealmenus', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    userId: {
+    menuId: {
       allowNull: false,
       type: Sequelize.INTEGER
     },
-    Date: {
+    mealId: {
       allowNull: false,
-      type: Sequelize.DATE
+      type: Sequelize.INTEGER
     },
     createdAt: {
       allowNull: false,
@@ -25,5 +25,13 @@ module.exports = {
       type: Sequelize.DATE
     }
   }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('mealmenu')
+  down: (queryInterface, Sequelize) => {
+    /*
+      Add reverting commands here.
+      Return a promise to correctly handle asynchronicity.
+
+      Example:
+      return queryInterface.dropTable('users');
+    */
+  }
 };

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     menuId: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      type: DataTypes.INTEGER,
       validate: {
         notEmpty: {
           args: true,
@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
-  });
-  
+  }, {});
   return Mealmenu;
 };

@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
+    // meals: {
+    //   type: DataTypes.ARRAY,
+    // },
     description: {
       type: DataTypes.STRING,
       validate: {
@@ -18,25 +21,26 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
-    mealId: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'mealId is required',
-        },
-      },
-    },
+    date: {
+      type: DataTypes.DATE,
+    }
   });
 
   Menu.associate = (models) => {
+    Menu.belongsToMany(
+      models.Meal,
+      {
+        onDelete: 'CASCADE',
+        through: models.Mealmenu,
+        foreignKey: 'menuId'
+      },
+    );
     Menu.belongsTo(
       models.User,
-      { foreignKey: 'userId', onDelete: 'CASCADE' },
-    );
-    Menu.hasMany(
-      models.Meal,
-      { foreignKey: 'mealId', onDelete: 'CASCADE' },
+      {
+        onDelete: 'CASCADE',
+        foreignKey: 'userId'
+      },
     );
   };
   return Menu;

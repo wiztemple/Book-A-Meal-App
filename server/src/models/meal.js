@@ -2,6 +2,15 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Meal = sequelize.define('Meal', {
+    userId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: 'userId is required',
+        },
+      },
+    },
     title: {
       type: DataTypes.STRING,
       validate: {
@@ -34,19 +43,14 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   Meal.associate = (models) => {
-    // associations can be defined here
-    // Meal.belongsTo(
-    //   models.Menu,
-    //   { foreignKey: 'menuId', onDelete: 'CASCADE' },
-    // );
-    // Meal.belongsTo(
-    //   models.User,
-    //   { foreignKey: 'userId', onDelete: 'CASCADE' },
-    // );
-    // Meal.belongsTo(
-    //   models.Order,
-    //   { foreignKey: 'orderId', onDelete: 'CASCADE' },
-    // );
+    Meal.belongsToMany(
+      models.Menu,
+      {
+        onDelete: 'CASCADE',
+        foreignKey: 'mealId',
+        through: models.Mealmenu,
+      },
+    );
   };
   return Meal;
 };

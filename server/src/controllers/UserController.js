@@ -3,18 +3,16 @@ import db from '../models/index';
 import jwtSigner from '../helpers/jwtSigner';
 
 /**
- * @class UserController
- */
+ * Auth Controller.
+ * @class AuthController
+ * */
 export default class UserController {
   /**
-
-   * @description - This handles users registration
-  * @static
-
-   * @param {object} request ,
-   * @param {*object} response ,
+   * signup a user
    *
-   * @returns {Object} Object
+   * @param {object} request The request.
+   * @param {object} response The response.
+   * @returns {object} response.
    */
   static signUp(request, response) {
     const {
@@ -58,16 +56,18 @@ export default class UserController {
               token,
             });
           });
-      }).catch(() => response.status(500).json({
+      }).catch(error => response.status(500).json({
         status: 'error',
-        message: 'internal server error',
+        message: error.message,
       }));
   }
   /**
- *
- * @param {object} request,
- * @param {object} response,
- */
+   * login a user
+   *
+   * @param {object} request The request.
+   * @param {object} response The response.
+   * @returns {object} response.
+   */
   static login(request, response) {
     const {
       email,
@@ -111,10 +111,12 @@ export default class UserController {
       });
   }
   /**
- *
- * @param {object} request,
- * @param {object} response,
- */
+   * get all users
+   *
+   * @param {object} request The request.
+   * @param {object} response The response.
+   * @returns {object} response.
+   */
   static getAllUsers(request, response) {
     return db.User.findAll().then((users) => {
       response.status(200).json({
@@ -128,10 +130,11 @@ export default class UserController {
   }
 
   /**
+   * update a user
    *
-   * @param {object} request
-   * @param {object} response
-   * @returns {object}
+   * @param {object} request The request.
+   * @param {object} response The response.
+   * @returns {object} response.
    */
   static updateUser(request, response) {
     const { firstName, lastName } = request.body;

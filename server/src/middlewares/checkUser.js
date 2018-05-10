@@ -9,8 +9,7 @@ const checkUser = (request, response, next) => {
         message: 'Cannot fetch user!',
       });
     }
-
-    if (user.role !== 'caterer') {
+    if (user.role !== 'caterer' && user.role !== 'admin') {
       return response.status(401).json({
         message: 'You are not authorized to perform this operation',
       });

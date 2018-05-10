@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "nyc --reporter=html --reporter=text mocha ./dummyServer/test/test.js --exit --compilers js:babel-core/register",
-    "test:server": "nyc --reporter=html --reporter=text mocha ./server/src/test --exit --compilers js:babel-core/register",
+    "test": "nyc --reporter=html --reporter=text mocha ./dummyServer/test/test.js --exit --recursive --compilers js:babel-core/register",
+    "test:server": "nyc --reporter=html --reporter=text mocha ./server/src/test/test.js --exit --recursive --compilers js:babel-core/register",
     "lint": "eslint **/*.js --fix",
     "babel-node": "babel-node ./server/app.js --presets=env",
     "start": "babel-node ./server/app.js",
@@ -32,11 +32,12 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.2.1",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.1",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.37.6",
     "sequelize-cli": "^4.0.0",
-    "uninstall": "0.0.0",
     "validator": "^9.4.1",
     "volleyball": "^1.4.1"
   },
@@ -61,7 +62,7 @@
     "mocha": "^5.1.1",
     "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^1.17.3",
-    "nyc": "^11.7.1",
+    "nyc": "^11.7.2",
     "supertest": "^3.0.0"
   }
 }

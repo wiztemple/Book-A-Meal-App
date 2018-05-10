@@ -1,47 +1,73 @@
+import moment from 'moment';
 import db from '../models/index';
 
+/**
+ * Menu Controller.
+ * @class MenuController
+ * */
 export default class MenuController {
   /**
+   * create a menu
    *
-   * @param {object} request,
-   * @param {object} response,
+   * @param {object} request The request.
+   * @param {object} response The response.
+   * @returns {object} response.
    */
   static addMenu(request, response) {
     const {
-      menuId,
       description,
-      mealId,
-      userId,
+      meals,
+      date,
     } = request.body;
-    db.Menu.findOne({
-      where: {
-        id: menuId,
-      },
+    const Today = moment();
+    db.Menu.create({
+      userId: request.userId,
+      description,
+      date: date || Today,
+    }, {
+      include: [db.User],
     })
-      .then((menuExists) => {
-        if (menuExists) {
-          return response.status(409).json({
-            status: 'fail',
-            message: 'menu already  exists',
+      .then((createdMenu) => {
+        if (createdMenu) {
+          createdMenu.setMeals(meals);
+          return response.status(201).json({
+            status: 'success',
+            message: 'menu was successfully created',
+            menu: {
+              id: createdMenu.id,
+              description: createdMenu.description,
+              date: createdMenu.date,
+              createdAt: createdMenu.createdAt,
+              updatedAt: createdMenu.updatedAt
+            },
           });
         }
-        if (!menuExists) {
-          db.Menu.create({
-            description, mealId, userId,
-          })
-            .then((newMenu) => {
-              response.status(201).json({
-                status: 'success',
-                message: 'menu was successfully created',
-                newMenu,
-              });
-            });
-        }
-      })
-      .catch(() =>
-        response.status(500).json({
-          status: 'error',
-          message: 'Internal server error',
-        }));
+      }).catch(error => response.status(500).json({
+        status: 'error',
+        message: error.stack,
+      }));
+  }
+  /**
+   * get menu
+   *
+   * @param {object} request The request.
+   * @param {object} response The response.
+   * @returns {object} response.
+   */
+  static getMenu(request, response) {
+    return db.Menu.find({
+      include: [
+        db.Meal
+      ]
+    }).then((menu) => {
+      response.status(200).json({
+        status: 'success',
+        menu,
+      });
+    }).catch((error) => {
+      response.status(500).json({
+        message: error.message,
+      });
+    });
   }
 }

@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     role: {
       type: DataTypes.ENUM,
-      values: ['customer', 'caterer'],
+      values: ['customer', 'caterer', 'admin'],
       validate: {
         notEmpty: {
           args: true,
@@ -65,15 +65,15 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     User.hasMany(
       models.Menu,
-      { foreignKey: 'menuId', onDelete: 'CASCADE' },
+      { foreignKey: 'userId', onDelete: 'CASCADE' },
     );
     User.hasMany(
       models.Meal,
-      { foreignKey: 'mealId', onDelete: 'CASCADE' },
+      { foreignKey: 'userId', onDelete: 'CASCADE' },
     );
     User.hasMany(
       models.Order,
-      { foreignKey: 'orderId', onDelete: 'CASCADE' },
+      { foreignKey: 'userId', onDelete: 'CASCADE' },
     );
   };
   return User;

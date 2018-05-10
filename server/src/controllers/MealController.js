@@ -1,6 +1,17 @@
 import db from '../models/index';
 
+/**
+ * Meal Controller.
+ * @class MealController
+ * */
 export default class MealController {
+  /**
+   * Add a meal
+   *
+   * @param {object} request The request.
+   * @param {object} response The response.
+   * @returns {object} response.
+   */
   static addMeals(request, response) {
     const {
       title, description, price, imageUrl,
@@ -9,18 +20,23 @@ export default class MealController {
     db.Meal.findOne({
       where: {
         title,
+        userId: request.userId
       },
     })
       .then((mealExists) => {
         if (mealExists) {
           return response.status(409).json({
             status: 'Fail',
-            message: 'meal title already exist',
+            message: 'meal already exist',
           });
         }
       })
       .then(() => db.Meal.create({
-        title, description, price, imageUrl,
+        title,
+        description,
+        price,
+        imageUrl,
+        userId: request.userId,
       }))
       .then((newMeal) => {
         response.status(201).json({
@@ -37,6 +53,13 @@ export default class MealController {
       });
   }
 
+  /**
+   * Get all meals
+   *
+   * @param {object} request The request.
+   * @param {object} response The response.
+   * @returns {object} response.
+   */
   static getAllMeals(request, response) {
     return db.Meal.findAll().then((meals) => {
       response.status(200).json({
@@ -49,7 +72,13 @@ export default class MealController {
     }));
   }
 
-
+  /**
+   * Update a meal
+   *
+   * @param {object} request The request.
+   * @param {object} response The response.
+   * @returns {object} response.
+   */
   static updateMeal(request, response) {
     const {
       title, description, price, imageUrl,
@@ -68,11 +97,12 @@ export default class MealController {
             price: price || mealExists.price,
             imageUrl: imageUrl || mealExists.imageUrl,
           };
-          mealExists.update(update).then(updatedMeal => response.status(200).json({
-            status: 'success',
-            message: 'Updated successfully',
-            meal: updatedMeal,
-          }));
+          mealExists.update(update)
+            .then(updatedMeal => response.status(200).json({
+              status: 'success',
+              message: 'Updated successfully',
+              meal: updatedMeal,
+            }));
         }
         if (!mealExists) {
           return response.status(404).json({
@@ -87,6 +117,13 @@ export default class MealController {
       }));
   }
 
+  /**
+   * delete a meal
+   *
+   * @param {object} request The request.
+   * @param {object} response The response.
+   * @returns {object} response.
+   */
   static deleteMeal(request, response) {
     db.Meal.findOne({
       where: {

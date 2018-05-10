@@ -42,9 +42,12 @@ module.exports = (sequelize, DataTypes) => {
       models.User,
       { foreignKey: 'userId', onDelete: 'CASCADE' },
     );
-    Order.hasMany(
+    Order.belongsTo(
       models.Meal,
-      { foreignKey: 'mealId', onDelete: 'CASCADE' },
+    { 
+      onDelete: 'CASCADE',
+      foreignKey: 'mealId',
+      },
     );
   };
   return Order;

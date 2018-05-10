@@ -3,6 +3,8 @@ import path from 'path';
 import Sequelize from 'sequelize';
 import configJson from '../config/config';
 
+require('dotenv').config();
+
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = configJson[env];
@@ -11,7 +13,7 @@ const db = {};
 let sequelize;
 if (env === 'production') {
   sequelize = new Sequelize(
-    process.env[config.environment],
+    process.env.DB_URL,
     {
       dialectOptions: {
         ssl: true,

@@ -19,7 +19,7 @@ module.exports = {
     dialect: 'postgres',
   },
   production: {
-    environment: 'DATABASE_URL',
+    environment: 'DB_URL',
     dialect: 'postgres',
   },
 };

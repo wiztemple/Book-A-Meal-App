@@ -8,7 +8,7 @@
     "test": "nyc --reporter=html --reporter=text mocha ./dummyServer/test/test.js --exit --recursive --compilers js:babel-core/register",
     "test:server": "nyc --reporter=html --reporter=text mocha ./server/src/test/test.js --exit --recursive --compilers js:babel-core/register",
     "lint": "eslint **/*.js --fix",
-    "babel-node": "babel-node ./server/app.js --presets=env",
+    "babel-node": "babel-node ./server/app.js",
     "start": "babel-node ./server/app.js",
     "dev-server": "nodemon --exec npm run babel-node -- ./server/app.js"
   },

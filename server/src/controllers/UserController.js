@@ -46,13 +46,13 @@ export default class UserController {
             return response.status(201).json({
               status: 'success',
               message: 'Account was created',
-              user: {
-                id: newUser.id,
-                firstName: newUser.firstName,
-                lastName: newUser.lastName,
-                email: newUser.email,
-                role: newUser.role,
-              },
+              // user: {
+              //   id: newUser.id,
+              //   firstName: newUser.firstName,
+              //   lastName: newUser.lastName,
+              //   email: newUser.email,
+              //   role: newUser.role,
+              // },
               token,
             });
           });

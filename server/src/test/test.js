@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTIxODE1MzYzLCJleHAiOjE1MjIyNDczNjN9.U0WCcpMiLPJpSFQBid35GU42ExV10FljUM0e_rpbvNk';
 
 const Meal = {
-  title: 'Puklane',
+  title: 'Vegetable soup',
   description: 'Good soup',
   price: 100,
   imageUrl: 'https://www.err.com/hwh',
@@ -62,9 +62,6 @@ describe('POST Meal/', () => {
       .set('x-access-token', token)
       .send({
         title: '',
-        description: 'Delicious meal.',
-        price: 400,
-        imageUrl: 'https://www.hertayy',
       })
       .end((err, res) => {
         expect(res)

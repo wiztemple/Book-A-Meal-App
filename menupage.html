@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="./assets/css/responsive.css">
   <link rel="stylesheet" href="./assets/css/nav-base.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/modal.css">
+  <link rel="stylesheet" href="./assets/css/account.css">
   <link rel="stylesheet" href="./assets/css/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
@@ -58,8 +60,12 @@
                 <div class="card">
                   <div class="card__image"><img class="img-fluid" src="./assets/images/yam.jpeg"></div>
                   <div class="card__title"><p class="orangered">Fried Yam</p></div>
-                  <div class="card__description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p></div>
-                  <button class="btn btn-order btn-block"><i class="fa fa-shopping-cart"></i> Order</button>
+                  <div class="card__description">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p>
+                    <p class="orangered">Price: N1000</p>
+                    <button id="modalBtn" class="btn btn-order btn-block"><i class="fa fa-shopping-cart"></i> Order</button>
+                  </div>
+                 
                 </div>
               </div>
               <div class="column">
@@ -67,17 +73,24 @@
                     <div class="card__image"><img class="img-fluid" src="./assets/images/rice.jpeg">
                     </div>
                     <div class="card__title"><p class="orangered">Rice</p></div>
-                    <div class="card__description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p>
+                    <div class="card__description">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p>
+                      <p class="orangered">Price: N1000</p>
+                      <button class="btn btn-order btn-block"><i class="fa fa-shopping-cart"></i> Order</button>
                     </div>
-                    <button class="btn btn-order btn-block"><i class="fa fa-shopping-cart"></i> Order</button>
+                    
                   </div>
               </div>
               <div class="column">
                   <div class="card">
                     <div class="card__image"><img class="img-fluid" src="./assets/images/pawns.jpeg"></div>
                     <div class="card__title">Sea Food</div>
-                    <div class="card__description"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p></div>
-                    <button class="btn btn-order btn-block"><i class="fa fa-shopping-cart"></i> Order</button>
+                    <div class="card__description">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, mollitia?</p>
+                      <p class="orangered">Price: N1000</p>
+                      <button class="btn btn-order btn-block"><i class="fa fa-shopping-cart"></i> Order</button>
+                    </div>
+                    
                   </div>
               </div>
             </div>
@@ -94,5 +107,37 @@
           </div>
       </section>
   </div>
+  <div id="simpleModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="closeBtn">&times;</span>
+        <h2>Meal Order</h2>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" placeholder="Name">
+          </div>
+          <div class="form-row">
+            <label for="name">Item:</label>
+            <input type="text" class="form-control" placeholder="Item">
+          </div>
+          <div class="form-row">
+              <label for="name">Quantity:</label>
+              <input type="text" class="form-control" placeholder="Quantity">
+          </div>
+          <div class="form-row">
+              <label for="name">Delivery Address:</label>
+              <input type="text" class="form-control" placeholder="Address">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-order"> Proceed</button>
+      </div>
+    </div>
+  </div>
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>

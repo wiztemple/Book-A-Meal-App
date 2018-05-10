@@ -17,6 +17,7 @@
 }
 .menu li a:hover {
 	border-bottom: 4px solid #fff;
+	cursor: pointer;
 }
 .menu li .no_border:hover {
 	border-bottom: 0;

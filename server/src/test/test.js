@@ -6,7 +6,7 @@ const { expect } = chai;
 chai.use(chaiHttp);
 
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTIxODE1MzYzLCJleHAiOjE1MjIyNDczNjN9.U0WCcpMiLPJpSFQBid35GU42ExV10FljUM0e_rpbvNk';
-
+ 
 const Meal = {
   title: 'Vegetable soup',
   description: 'Good soup',
@@ -22,8 +22,6 @@ const User = {
   password: 'andela',
 };
 
-
-//  Add a business
 describe('POST Meal/', () => {
   it('should be able to post a meal', (done) => {
     chai.request(app)

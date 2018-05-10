@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   const Meal = sequelize.define('Meal', {
     userId: {
       type: DataTypes.INTEGER,
+      
       validate: {
         notEmpty: {
           args: true,

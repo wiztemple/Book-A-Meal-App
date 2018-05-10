@@ -55,7 +55,7 @@ export default class MenuController {
    * @returns {object} response.
    */
   static getMenu(request, response) {
-    return db.Menu.find({
+    return db.Menu.findAll({
       include: [
         db.Meal
       ]

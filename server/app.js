@@ -22,10 +22,11 @@ app.all('/api*', (request, response) => {
   response.status(404).send('The API route you requested does not exist');
 });
 
-// db.sequelize.sync({ force: false }).then(() => {
-  
-// });
-app.listen(port, () => {
-  // eslint-disable-next-line
-  console.log(`App Listening on port ${port}`);
+db.sequelize.sync({ force: false }).then(() => {
+  app.listen(port, () => {
+    // eslint-disable-next-line
+    console.log(`App Listening on port ${port}`);
+  });
 });
+
+export default app;

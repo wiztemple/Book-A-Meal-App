@@ -18,7 +18,7 @@ export default class OrderController {
     } = request.body;
     db.Order.findOne({
       where: {
-        orderId: request.orderId,
+        id: request.orderId,
       }
     }).then((orderExist) => {
       if (orderExist) {

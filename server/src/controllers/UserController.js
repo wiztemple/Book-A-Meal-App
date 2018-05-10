@@ -94,14 +94,8 @@ export default class UserController {
         const token = jwtSigner(foundUser);
         return response.status(200).json({
           status: 'Success',
+          message: 'You are logged in',
           token,
-          foundUser: {
-            id: foundUser.id,
-            firstName: foundUser.firstName,
-            lastName: foundUser.lastName,
-            email: foundUser.email,
-            role: foundUser.role,
-          },
         });
       }).catch(() => {
         response.status(500).json({

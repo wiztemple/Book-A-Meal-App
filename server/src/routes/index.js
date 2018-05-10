@@ -24,7 +24,7 @@ const routes = (app) => {
   app.get('/api/v1/menu', verifyToken, MenuController.getMenu);
   app.post('/api/v1/order', verifyToken, OrderController.makeOrder);
   app.put('/api/v1/order/:orderId', verifyToken, validateId, OrderController.updateOrder);
-  app.get('api/v1/order', verifyToken, checkUser, OrderController.getOrders);
+  app.get('/api/v1/order', verifyToken, checkUser, OrderController.getOrders);
 };
 
 export default routes;

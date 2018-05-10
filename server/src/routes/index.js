@@ -13,7 +13,7 @@ const routes = (app) => {
   app.get('/api/v1/auth/users', UserController.getAllUsers);
   app.post('/api/v1/meals', verifyToken, checkUser, MealController.addMeals);
   app.delete('/api/v1/meals/:mealId', verifyToken, checkUser, validateId, MealController.deleteMeal);
-  app.put('/api/v1/meals/:mealId', verifyToken, checkUser, validateId, MealController.updateMeal);
+  app.put('/api/v1/meals/:mealId', verifyToken, checkUser, MealController.updateMeal);
   app.get('/api/v1/meals', verifyToken, checkUser, MealController.getAllMeals);
   app.post('/api/v1/menu', verifyToken, checkUser, MenuController.addMenu);
   app.get('/api/v1/menu', verifyToken, MenuController.getMenu);

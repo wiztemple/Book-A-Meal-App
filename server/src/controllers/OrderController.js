@@ -29,10 +29,10 @@ export default class OrderController {
       }
       db.Order.create({
         userId: request.userId,
-        quantity,
         mealId,
+        quantity,
         deliveryAddress
-      }, { include: [db.User], }).then((newOrder) => {
+      }, { include: [db.User] }, { include: [db.Meal] }).then((newOrder) => {
         response.status(201).json({
           status: 'success',
           message: 'Order was successfully placed',

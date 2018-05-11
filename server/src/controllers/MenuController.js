@@ -24,9 +24,7 @@ export default class MenuController {
       userId: request.userId,
       description,
       date: date || Today,
-    }, {
-      include: [db.User],
-    }).then((createdMenu) => {
+    }, { include: [db.User] }, { include: [db.Meal] }).then((createdMenu) => {
       if (createdMenu) {
         createdMenu.setMeals(meals);
         return response.status(201).json({

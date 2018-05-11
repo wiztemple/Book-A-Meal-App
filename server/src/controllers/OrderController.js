@@ -98,7 +98,7 @@ export default class OrderController {
             .then(updatedOrder => response.status(200).json({
               status: 'success',
               message: 'Updated successfully',
-              updatedOrder,
+              order: updatedOrder,
             }));
         }
         if (!foundOrder) {

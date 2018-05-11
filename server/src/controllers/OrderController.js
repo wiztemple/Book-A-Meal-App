@@ -32,7 +32,7 @@ export default class OrderController {
         mealId,
         quantity,
         deliveryAddress
-      }, { include: [db.User] }, { include: [db.Meal] }).then((newOrder) => {
+      }, { include: [db.User] }).then((newOrder) => {
         response.status(201).json({
           status: 'success',
           message: 'Order was successfully placed',

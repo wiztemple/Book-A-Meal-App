@@ -20,48 +20,33 @@ export default class MenuController {
       date,
     } = request.body;
     const Today = moment();
-    db.Menu.findOne({
-      where: {
-        menuId: request.menuId
-      }
-    }).then((menuExist) => {
-      if (menuExist) {
-        return response.status(409).json({
-          status: 'Fail',
-          message: 'Menu already exist'
+    db.Menu.create({
+      userId: request.userId,
+      description,
+      date: date || Today,
+    }, {
+      include: [db.User],
+    }).then((createdMenu) => {
+      if (createdMenu) {
+        createdMenu.setMeals(meals);
+        return response.status(201).json({
+          status: 'success',
+          message: 'menu was successfully created',
+          menu: {
+            id: createdMenu.id,
+            description: createdMenu.description,
+            date: createdMenu.date,
+            createdAt: createdMenu.createdAt,
+            updatedAt: createdMenu.updatedAt
+          },
         });
       }
-      db.Menu.create({
-        userId: request.userId,
-        description,
-        date: date || Today,
-      }, {
-        include: [db.User],
-      }).then((createdMenu) => {
-        if (createdMenu) {
-          createdMenu.setMeals(meals);
-          return response.status(201).json({
-            status: 'success',
-            message: 'menu was successfully created',
-            menu: {
-              id: createdMenu.id,
-              description: createdMenu.description,
-              date: createdMenu.date,
-              createdAt: createdMenu.createdAt,
-              updatedAt: createdMenu.updatedAt
-            },
-          });
-        }
-      }).catch(error => response.status(500).json({
-        status: 'error',
-        message: error.message,
-      }));
-    }).catch(error =>
-      response.status(500).json({
-        status: 'error',
-        message: error.message,
-      }));
+    }).catch(error => response.status(500).json({
+      status: 'error',
+      message: error.message,
+    }));
   }
+
   /**
    * get menu
    *

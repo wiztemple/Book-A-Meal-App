@@ -160,9 +160,14 @@ export const validatePassword = (request, response, next) => {
  * @returns {Object} Object
  */
 export const validateId = (request, response, next) => {
-  // If id is not a number
-  if (!Number(request.params.id)) {
-    return response.status(400).send({ status: 'Failure', message: 'Please input a valid ID' });
+  const { id } = request.params;
+
+  const error = {};
+
+  if (Number.isNaN(parseInt(id, 10))) {
+    error.id = 'The Id must be a number';
   }
-  next();
+
+  if (isEmpty(error)) return next();
+  return response.status(400).json({ error });
 };

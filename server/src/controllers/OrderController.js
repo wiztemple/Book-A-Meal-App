@@ -80,7 +80,7 @@ export default class OrderController {
    */
   static updateOrder(request, response) {
     const {
-      quantity, deliveryAddress
+      mealId, quantity, deliveryAddress
     } = request.body;
 
     db.Order.findOne({
@@ -91,6 +91,7 @@ export default class OrderController {
       .then((foundOrder) => {
         if (foundOrder) {
           const update = {
+            mealId: mealId || foundOrder.mealId,
             quantity: quantity || foundOrder.quantity,
             deliveryAddress: deliveryAddress || foundOrder.deliveryAddress,
           };

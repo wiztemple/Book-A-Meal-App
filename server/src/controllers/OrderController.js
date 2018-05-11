@@ -91,14 +91,14 @@ export default class OrderController {
       .then((foundOrder) => {
         if (foundOrder) {
           const update = {
-            quantity,
-            deliveryAddress,
+            quantity: quantity || foundOrder.quantity,
+            deliveryAddress: deliveryAddress || foundOrder.deliveryAddress,
           };
           foundOrder.update(update)
             .then(updatedOrder => response.status(200).json({
               status: 'success',
               message: 'Updated successfully',
-              order: updatedOrder,
+              foundOrder: updatedOrder,
             }));
         }
         if (!foundOrder) {

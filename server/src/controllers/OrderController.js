@@ -60,7 +60,11 @@ export default class OrderController {
    * @returns {object} response.
    */
   static getOrders(request, response) {
-    return db.Order.findAll().then((order) => {
+    return db.Order.findAll({
+      include: [
+        db.Meal
+      ]
+    }).then((order) => {
       response.status(200).json({
         status: 'success',
         order,

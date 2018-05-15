@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Book-A-Meal</title>
+  <link rel="stylesheet" href="./assets/css/layout.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
+  <link rel="stylesheet" href="./assets/css/nav-base.css">
+  <link rel="stylesheet" href="./assets/css/account.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+<section class="menu-section">
+        <div class="container2 mt-0 mb-0">
+            <div class="nav-mixed menu">
+                <nav id="single-nav" class="logo" role="navigation">
+                    <ul>
+                        <li><a class="no_border" href="index.html" class="logo text-shadow">Book-A-Meal</a></li>
+                    </ul>
+                </nav>
+                <nav id="social-menu" class="social-menu" role="navigation">
+                    <ul>
+                        <li>
+                            <a class="no_border" href="signup.html">
+                            <button class="btn btn-light"><i class="fa fa-user"></i> Create Account</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="no_border" href="signin.html">
+                                <button class="btn btn-light">Login</button>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+</section>
+  <div class="account">
+    
+    <div class="container">
+        <div class="row">
+            <div class="column"></div>
+            <div class="column">
+              <div class="signup">
+                <h2 class="text-center py-10"><a class="white" href="index.html">Book-A-Meal</a></h2>
+                <div class="form-card">
+                    <p class="py-10">Please fill in your details</p>
+                    <form>
+                        <div class="form-row">
+                          <label for="name">First Name:</label>
+                          <input type="text" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="name">Last Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="name">Email:</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" required minlength="3" maxlength="30">
+                        </div>
+                        <div class="form-row">
+                           <label for="name">Select a type of User</label>
+                           <select>
+                               <option></option>
+                               <option>Caterer</option>
+                               <option>User</option>
+                           </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="name">Password</label>
+                            <input type="password" class="form-control" required placeholder="Enter your name">
+                        </div>
+                        <a href="menupage.html">
+                            <button type="button" class="btn account__btn btn-block">Register</button>
+                        </a>
+                    </form>
+                </div>
+                <p class="py-10">Already Signed Up? <a href="signin.html">Login</a></p>
+              </div>
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+    
+  </div>
+  <section class="footer">
+        <div class="footer-body">
+          <div class="container2 mt-0 mb-0">
+            <ul>
+              <li>&copy; <i class="fa fa-shopping-cart"></i> Book-A-Meal 2018. UKAEGBU SULLIVAN WISDOM. @Andela Bootcamp Project.</li>
+            </ul>
+          </div>
+        </div>
+ </section>
+</body>
+</html>
